@@ -1,0 +1,7 @@
+name: DeLHomes
+authors: [DeLson]
+description: An efficient homes system with the features you need.
+main: fun.delson.delhomes.DeLHomes
+version: 0.1.0
+api-version: 1.21
+
