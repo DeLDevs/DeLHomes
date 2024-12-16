@@ -1,16 +1,18 @@
 package fun.delson.delhomes.config;
 
-import java.util.ArrayList;
+import java.util.UUID;
 
 import org.bukkit.entity.Player;
 
 public class PlayerConfig {
 
-    public Player player;
-    ArrayList<Home> homes;
+    public String name;
+    public UUID uuid;
+    Home[] homes;
 
-    public PlayerConfig(Player player, ArrayList<Home> homes) {
-        this.player = player;
+    public PlayerConfig(Player player, Home[] homes) {
+        this.name = player.getName();
+        this.uuid = player.getUniqueId();
         this.homes = homes;
     }
 
