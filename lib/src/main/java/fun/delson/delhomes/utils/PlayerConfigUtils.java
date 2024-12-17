@@ -63,12 +63,14 @@ public class PlayerConfigUtils {
         PlayerConfig playerConfig = playerConfigs.get(findPlayerConfig(player));
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(playerConfig);
-        Bukkit.getLogger().info(json);
         try {
             FileWriter fw = new FileWriter(getPlayerFile(player), false);
             fw.write(json);
             fw.close();
-            playerConfigs.remove(findPlayerConfig(player));
+            if (findPlayerConfig(player) != -1) {
+                playerConfigs.remove(findPlayerConfig(player));
+            }
+            loadConfig(player);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,6 +83,13 @@ public class PlayerConfigUtils {
             }
         }
         return -1;
+    }
+
+    public static PlayerConfig getPlayerConfig(Player player) {
+        if (findPlayerConfig(player) != -1) {
+            return playerConfigs.get(findPlayerConfig(player));
+        }
+        return null;
     }
 
     public static File getPlayerFile(Player player) {

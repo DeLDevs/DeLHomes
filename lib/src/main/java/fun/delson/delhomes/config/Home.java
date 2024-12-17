@@ -12,6 +12,10 @@ public class Home {
 
     public Home(String name, Location location) {
         this.name = name;
+        setLocation(location);
+    }
+
+    public void setLocation(Location location) {
         this.world = location.getWorld().getUID();
         this.worldName = location.getWorld().getName();
         this.x = location.getX();
