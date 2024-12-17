@@ -43,7 +43,7 @@ public class DelHome implements CommandExecutor {
                 return false;
             } else {
                 config.delHome(name);
-                player.sendMessage(Chat.color("&6Home &b" + name + "&6 deleted."));
+                player.sendMessage(Chat.color("&6Home &c" + name + "&6 deleted."));
             }
         } else {
             sender.sendMessage(Chat.color("&6You must be a player to use this command."));

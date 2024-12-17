@@ -1,6 +1,7 @@
 package fun.delson.delhomes.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,16 +12,16 @@ import fun.delson.delhomes.config.Home;
 import fun.delson.delhomes.config.PlayerConfig;
 import fun.delson.delhomes.utils.Chat;
 import fun.delson.delhomes.utils.PlayerConfigUtils;
-import fun.delson.delhomes.utils.PluginUtils;
 
-public class SetHome implements CommandExecutor {
+public class HomeCmd implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        
+
         Player player = (Player) sender;
 
         if (sender instanceof Player) {
+
             PlayerConfig config = PlayerConfigUtils.getPlayerConfig(player);
             if (config == null) {
                 Bukkit.getLogger().info(Chat.color("&cPlayer &6" + player.getName() + "&c not found."));
@@ -32,25 +33,19 @@ public class SetHome implements CommandExecutor {
                 return false;
             }
             String name = args[0];
-            Home updating = null;
+            Home home = null;
             for (Home i : config.homes) {
                 if (i.name.equals(name)) {
-                    updating = i;
-                    break;
+                    home = i;
                 }
             }
-            if (updating == null) {
-                if (config.homes.length >= PluginUtils.getConfig().getInt("max-homes")) {
-                    player.sendMessage(Chat.color("&cToo many homes. Update an existing one or use &6/delhome&c to remove one."));
-                    return false;
-                } else {
-                    config.addHome(name, player.getLocation());
-                    player.sendMessage(Chat.color("&6Home &c" + name + "&6 set to current location."));
-                }
-            } else {
-                config.setHome(name, player.getLocation());
-                player.sendMessage(Chat.color("&6Home &c" + name + "&6 updated to current location."));
+            if (home == null) {
+                player.sendMessage(Chat.color("&cHome &6" + name + "&c not found.1"));
+                return false;
             }
+            Location location = new Location(Bukkit.getWorld(home.world), home.x, home.y, home.z, home.yaw, home.pitch);
+            player.teleport(location);
+            player.sendMessage(Chat.color("&6Teleporting to &c" + home.name + "&6."));
         } else {
             sender.sendMessage(Chat.color("&6You must be a player to use this command."));
             return false;
@@ -59,5 +54,5 @@ public class SetHome implements CommandExecutor {
         return true;
 
     }
-
 }
+
