@@ -5,3 +5,11 @@ main: fun.delson.delhomes.DeLHomes
 version: 0.1.0
 api-version: 1.21
 
+commands:
+  sethome:
+    description: Sets home to current location.
+    usage: "Usage: /sethome [home]"
+  delhome:
+    description: Deletes the home specified.
+    usage: "Usage: /delhome [home]"
+
