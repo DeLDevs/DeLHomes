@@ -9,6 +9,9 @@ commands:
   home:
     description: Teleports to a home.
     usage: "Usage: /home [home]"
+  homes:
+    description: Lists homes.
+    usage: "Usage: /homes"
   sethome:
     description: Sets home to current location.
     usage: "Usage: /sethome [home]"

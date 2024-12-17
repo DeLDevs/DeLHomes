@@ -69,10 +69,22 @@ public class PlayerConfigUtils {
             fw.close();
             if (findPlayerConfig(player) != -1) {
                 playerConfigs.remove(findPlayerConfig(player));
+                loadConfig(player);
+            } else {
+                Bukkit.getLogger().info(Chat.color("&cError while writing config for &6" + player.getName() + 
+                                                    "&c: Couldn't remove playerConfig in memory."));
             }
-            loadConfig(player);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void removePlayerConfig(Player player) {
+        if (findPlayerConfig(player) != -1) {
+            playerConfigs.remove(findPlayerConfig(player));
+        } else {
+            Bukkit.getLogger().info(Chat.color("&cError while writing config for &6" + player.getName() + 
+                        "&c: Couldn't remove playerConfig in memory."));
         }
     }
 
