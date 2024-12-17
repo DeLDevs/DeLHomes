@@ -6,6 +6,9 @@ version: 0.1.0
 api-version: 1.21
 
 commands:
+  home:
+    description: Teleports to a home.
+    usage: "Usage: /home [home]"
   sethome:
     description: Sets home to current location.
     usage: "Usage: /sethome [home]"

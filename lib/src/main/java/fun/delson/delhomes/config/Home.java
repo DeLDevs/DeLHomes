@@ -8,7 +8,8 @@ public class Home {
     public String name;
     public UUID world;
     public String worldName;
-    public double x, y, z, yaw, pitch;
+    public double x, y, z;
+    public float yaw, pitch;
 
     public Home(String name, Location location) {
         this.name = name;
