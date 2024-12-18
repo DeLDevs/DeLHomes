@@ -36,6 +36,11 @@ public class DeLHomes extends JavaPlugin {
         getCommand("sethome").setExecutor(new SetHome());
         getCommand("delhome").setExecutor(new DelHome());
 
+        // Tab Completion
+        getCommand("home").setTabCompleter(new HomeCmd());
+        getCommand("sethome").setTabCompleter(new SetHome());
+        getCommand("delhome").setTabCompleter(new DelHome());
+
         // Config
         for (Player p : Bukkit.getOnlinePlayers()) {
             PlayerConfigUtils.loadConfig(p);
