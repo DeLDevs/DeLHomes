@@ -26,6 +26,10 @@ public class Homes implements CommandExecutor {
                 player.sendMessage(Chat.color("&cPlayer &6" + player.getName() + "&c not found."));
                 return false;
             }
+            if (config.homes.length == 0) {
+                player.sendMessage(Chat.color("&6You have no homes. Use &c/sethome &6 to set one."));
+                return true;
+            }
             String response = "&6Homes: &r";
             response += config.homes[0].name;
             for (int i = 1; i < config.homes.length; i++) {

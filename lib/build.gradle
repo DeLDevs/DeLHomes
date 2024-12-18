@@ -12,12 +12,12 @@ plugins {
 
 apply plugin: 'eclipse'
 
-version = '1.0.0'
+version = '1.0.1'
 
 task makeJar(type: Jar) {
     manifest {
         attributes  'Implementation-Title': 'DeLHomes',
-                    'Implementation-Version': '0.1.0',
+                    'Implementation-Version': '1.0.1',
                     'Main-Class': 'fun.delson.delhomes.DeLHomes'
     }
     archiveBaseName = 'DeLHomes' + '_v' + version
