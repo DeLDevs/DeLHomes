@@ -12,6 +12,10 @@ commands:
   homes:
     description: Lists homes.
     usage: "Usage: /homes"
+  back:
+    description: Teleports to the provious location or to point of death.
+    usage: "Usage: /back"
+    aliases: [return]
   sethome:
     description: Sets home to current location.
     usage: "Usage: /sethome [home]"

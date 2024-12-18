@@ -13,11 +13,13 @@ public class PlayerConfig {
     public String name;
     public UUID uuid;
     public Home[] homes;
+    public Home back;
 
-    public PlayerConfig(Player player, Home[] homes) {
+    public PlayerConfig(Player player, Home[] homes, Home back) {
         this.name = player.getName();
         this.uuid = player.getUniqueId();
         this.homes = homes;
+        this.back = back;
     }
 
     public void setHome(String name, Location location) {
@@ -52,6 +54,11 @@ public class PlayerConfig {
             n++;
         }
         homes = newHomes;
+        PlayerConfigUtils.writeConfig(Bukkit.getPlayer(uuid));
+    }
+
+    public void setBack(Location loc) {
+        back = new Home("back", loc);
         PlayerConfigUtils.writeConfig(Bukkit.getPlayer(uuid));
     }
 
