@@ -26,3 +26,4 @@ public class Home {
         this.pitch = location.getPitch();
     }
 }
+
