@@ -26,7 +26,7 @@ public class PlayerConfigUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        PlayerConfig playerConfig = new PlayerConfig(player, new Home[0]);
+        PlayerConfig playerConfig = new PlayerConfig(player, new Home[0], null);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(playerConfig);
         try {
