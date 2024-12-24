@@ -1,0 +1,11 @@
+#  ----------------------------------------
+# |                                        |
+# |                DeLHomes                |
+# |                                        |
+# |               by  DeLson               |
+# |                                        |
+#  ----------------------------------------
+
+# Maximum number of homes that a player can have at one time.
+max-homes: 5
+
