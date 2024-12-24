@@ -45,7 +45,7 @@ public class HomeCmd implements TabExecutor {
                 }
             }
             if (home == null) {
-                player.sendMessage(Chat.color("&cHome &6" + name + "&c not found.1"));
+                player.sendMessage(Chat.color("&cHome &6" + name + "&c not found."));
                 return false;
             }
             Location location = new Location(Bukkit.getWorld(home.world), home.x, home.y, home.z, home.yaw, home.pitch);
