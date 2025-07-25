@@ -2,7 +2,7 @@ name: DeLHomes
 authors: [DeLson]
 description: An efficient homes system with the features you need.
 main: fun.delson.delhomes.DeLHomes
-version: 1.0.2
+version: 1.1.0
 api-version: 1.21
 
 commands:
@@ -22,4 +22,25 @@ commands:
   delhome:
     description: Deletes the home specified.
     usage: "Usage: /delhome [home]"
+  warp:
+    description: Teleports to a warp.
+    usage: "Usage: /warp [warp]"
+  warps:
+    description: Lists warps.
+    usage: "Usage: /warps"
+  setwarp:
+    description: Sets a warp at current location.
+    usage: "Usage: /setwarp [warp]"
+    permission: delhomes.admin
+    permission-message: You do not have `delhomes.admin` permission.
+  delwarp:
+    description: Deletes the warp specified.
+    usage: "Usage: /delwarp [warp]"
+    permission: delhomes.admin
+    permission-message: You do not have `delhomes.admin` permission.
+
+permissions:
+  delhomes.admin:
+    description: Grants access to admin commands
+    default: op
 

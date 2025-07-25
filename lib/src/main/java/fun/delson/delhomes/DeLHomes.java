@@ -6,15 +6,21 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fun.delson.delhomes.commands.Back;
 import fun.delson.delhomes.commands.DelHome;
+import fun.delson.delhomes.commands.DelWarp;
 import fun.delson.delhomes.commands.HomeCmd;
 import fun.delson.delhomes.commands.Homes;
 import fun.delson.delhomes.commands.SetHome;
+import fun.delson.delhomes.commands.SetWarp;
+import fun.delson.delhomes.commands.WarpCmd;
+import fun.delson.delhomes.commands.Warps;
 import fun.delson.delhomes.listeners.PlayerDeath;
 import fun.delson.delhomes.listeners.PlayerJoin;
 import fun.delson.delhomes.listeners.PlayerLeave;
 import fun.delson.delhomes.listeners.PlayerRespawn;
 import fun.delson.delhomes.listeners.PlayerTeleport;
+import fun.delson.delhomes.utils.Chat;
 import fun.delson.delhomes.utils.PlayerConfigUtils;
+import fun.delson.delhomes.utils.ServerConfigUtils;
 
 
 public class DeLHomes extends JavaPlugin {
@@ -35,13 +41,21 @@ public class DeLHomes extends JavaPlugin {
         getCommand("back").setExecutor(new Back());
         getCommand("sethome").setExecutor(new SetHome());
         getCommand("delhome").setExecutor(new DelHome());
+        getCommand("warp").setExecutor(new WarpCmd());
+        getCommand("warps").setExecutor(new Warps());
+        getCommand("setwarp").setExecutor(new SetWarp());
+        getCommand("delwarp").setExecutor(new DelWarp());
 
         // Tab Completion
         getCommand("home").setTabCompleter(new HomeCmd());
         getCommand("sethome").setTabCompleter(new SetHome());
         getCommand("delhome").setTabCompleter(new DelHome());
+        getCommand("warp").setTabCompleter(new WarpCmd());
+        getCommand("setwarp").setTabCompleter(new SetWarp());
+        getCommand("delwarp").setTabCompleter(new DelWarp());
 
         // Config
+        ServerConfigUtils.loadConfig();
         for (Player p : Bukkit.getOnlinePlayers()) {
             PlayerConfigUtils.loadConfig(p);
         }
@@ -56,6 +70,7 @@ public class DeLHomes extends JavaPlugin {
             PlayerConfigUtils.writeConfig(p);
             PlayerConfigUtils.removePlayerConfig(p);
         }
+        ServerConfigUtils.writeConfig();
 
     }
 
