@@ -12,12 +12,12 @@ plugins {
 
 apply plugin: 'eclipse'
 
-version = '1.1.0'
+version = '1.1.1'
 
 task makeJar(type: Jar) {
     manifest {
         attributes  'Implementation-Title': 'DeLHomes',
-                    'Implementation-Version': '1.1.0',
+                    'Implementation-Version': '1.1.1',
                     'Main-Class': 'fun.delson.delhomes.DeLHomes'
     }
     archiveBaseName = 'DeLHomes' + '_v' + version
@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.11.0'
     
 //    compileOnly 'io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT'
-    compileOnly 'io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT'
+    compileOnly 'io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT'
 //    compileOnly 'org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT'
 //    compileOnly 'org.spigotmc:spigot:1.20.4-R0.1-SNAPSHOT'
 
